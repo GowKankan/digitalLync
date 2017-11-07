@@ -1,0 +1,55 @@
+body {
+  background: #fff;
+  color: #333;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.container {
+  display: block;
+  width: 400px;
+  margin: 100px auto 0;
+}
+
+input, button {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: 3px solid purple;
+  color: #888;
+  font-size: 16px;
+  width: 100px;
+  margin: 10px 0 0;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #333;
+}
+
+input[type="text"] {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+input[type="text"]:focus {
+  color: #333;
+}
+
+
+#tobecompleted input[type=text],#completed input[type=text]{
+  display: none;
+}
+#completed label{
+  text-decoration: line-through;
+}
