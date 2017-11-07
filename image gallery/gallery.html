@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Gallery</title>
+    <link rel="stylesheet" href="master.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="column">
+        <img src="images/img_fjords.jpg" alt="fjords" class="hover-shadow" onclick="openModal();currentSlide(1)">
+      </div>
+      <div class="column">
+        <img src="images/img_lights.jpg" alt="lights" class="hover-shadow" onclick="openModal();currentSlide(2)">
+      </div>
+      <div class="column">
+        <img src="images/img_mountains.jpg" alt="mountains" class="hover-shadow" onclick="openModal();currentSlide(3)">
+      </div>
+      <div class="column">
+        <img src="images/img_nature.jpg" alt="nature" class="hover-shadow" onclick="openModal();currentSlide(4)">
+      </div>
+    </div>
+
+    <!-- Modal elements -->
+    <div class="modal" id="popupModal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <!-- Content within the Modal -->
+      <div class="modalContent">
+        <!-- Slide elements -->
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="img_fjords.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">2 / 4</div>
+          <img src="img_lights.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">3 / 4</div>
+          <img src="img_mountains.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">4 / 4</div>
+          <img src="img_nature.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="captionContainer">
+          <p id="caption"></p>
+        </div>
+
+        <div class="column">
+          <img class="demo" src="images/img_fjords.jpg" alt="Fjords" onclick="currentSlide(1)">
+        </div>
+        <div class="column">
+          <img class="demo" src="images/img_lights.jpg" alt="Lights" onclick="currentSlide(2)">
+        </div>
+        <div class="column">
+          <img class="demo" src="images/img_mountains.jpg" alt="Mountains" onclick="currentSlide(3)">
+        </div>
+        <div class="column">
+          <img class="demo" src="images/img_nature.jpg" alt="Nature" onclick="currentSlide(4)">
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function openModal() {
+        document.getElementById('popupModal').style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById('popupModal').style.display = "none";
+      }
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (var i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (var i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
+
+    </script>
+
+  </body>
+</html>

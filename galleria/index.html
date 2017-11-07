@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gallery of Movies</title>
+    <link rel="stylesheet" href="master.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="engList" id="englishMovies">
+        <img id="thorImg" src="images/eng1.gif" alt="thor" >
+        <img id="GeoSImg" src="images/eng2.gif" alt="geostorm">
+        <img id="GTimg" src="images/eng3.gif" alt="goodtime">
+      </div>
+      <div class="hindiList">
+
+      </div>
+      <div class="telgList">
+
+      </div>
+
+      <!-- The Modal element -->
+      <div class="modal" id="imgModal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal content (The Image) -->
+        <img class="modalContent" id="selectedImg">
+
+        <!-- Modal Caption -->
+        <div id="caption"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      // Get the modal
+      var imgModal = document.getElementById('imgModal');
+
+      // Get the image and insert it in the modal.
+      var divEl = document.getElementsByClassName("engList")[0];
+      var modalImg = document.getElementById("selectedImg");
+
+      // Use the caption as the Alt text of the image
+      var captionTxt = document.getElementById("caption");
+
+      // Add event listener for the parent class
+      divEl.addEventListener("click", function(event){
+        imgModal.style.display = "block";
+        modalImg.src = event.target.src;
+        captionTxt.innerHTML = event.target.alt;
+        event.stopPropagation();
+      }, false);
+
+      // Close button
+      var span = document.getElementsByClassName("close")[0];
+
+      span.onclick = function() {
+        imgModal.style.display = "none";
+      }
+
+    </script>
+  </body>
+</html>
