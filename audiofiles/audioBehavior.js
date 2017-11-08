@@ -1,6 +1,6 @@
 
 
-var audioBox = document.getElementById("audio");
+var audioBox = document.getElementsByTagName("audio");
 var playlist = document.getElementById("playlist");
 
 var playBtn = document.getElementById("playBtn");
@@ -8,7 +8,8 @@ var pauseBtn = document.getElementById("pauseBtn");
 var stopBtn = document.getElementById("stopBtn");
 
 playlist.onclick = startPlayList;
-//pauseBtn.onclick = pauseTheSong(audioBox);
+playBtn.onclick = resumePlay;
+pauseBtn.onclick = pauseTheSong;
 
 function startPlayList(e) {
   console.log("event", e.target);
@@ -36,7 +37,20 @@ function playTheSong(audio) {
   audio.play();
 }
 
-function pauseTheSong(audio) {
-  console.log("paused the song");
-  audio.pause();
+function resumePlay() {
+  for (var i = 0; i < audioBox.length; i++) {
+    if (audioBox[i].paused) {
+      audioBox[i].play();
+    }
+  }
+  console.log("Resuming selected track ");
+}
+
+function pauseTheSong() {
+  for (var i = 0; i < audioBox.length; i++) {
+    if (!audioBox[i].paused) {
+      audioBox[i].pause();
+      console.log("paused the song");
+    }
+  }
 }
