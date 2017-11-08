@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Indie Music Playlist</title>
+    <link rel="stylesheet" href="audioStyle.css">
+  </head>
+  <body>
+    <audio id="audio" controls="">
+      <source type="audio/mp3" src="tracks/Beethoven-MoonlightSonata.mp3" >
+      Sorry, your browser does not support this HTML5 AudioBox. Please check your browser settings.
+    </audio>
+
+    <ul id="playlist">
+      <li class="active" data-src="tracks/Beethoven-MoonlightSonata.mp3">Beethoven MoonlightSonata</li>
+      <li data-src="tracks/Bolero.mp3">Bolero</li>
+      <li data-src="tracks/CanoninD.mp3">Canon in D</li>
+    </ul>
+
+    <!-- control buttons -->
+    <button type="button" id="playBtn">Play</button>
+    <button type="button" id="pauseBtn">Pause</button>
+    <button type="button" id="stopBtn">Stop</button>
+  </body>
+  <script type="text/javascript" src="audioBehavior.js"></script>
+</html>
